@@ -9,6 +9,12 @@ blurb: Denote filenames, and why you might want them.
 
 Optional. Plain Org files in a plain directory work. This page is about what you get if you adopt [Denote](https://protesilaos.com/emacs/denote)'s convention, which Denospace implements exactly.
 
+## It is not an Org convention
+
+Worth saying early, because the name misleads: Denote's scheme is about **filenames**, not file contents. It applies equally to Org, Markdown and plain text — and to files that are not notes at all, since a PDF or an image can carry the same name structure.
+
+Denospace implements all of it: `.org`, `.md` (YAML or TOML front matter) and `.txt`, with the dialect sniffed per file.
+
 ## The idea
 
 A note's metadata lives in its **filename**:
@@ -39,6 +45,12 @@ That matters because the alternative is a library where half the files were name
 ## Renaming
 
 `Denote: Rename` and `Denote: Rename File from Front Matter` rewrite the filename from the note's own metadata. Change the title in the front matter, run the command, and the filename follows — keeping the identifier, so nothing that links to it breaks.
+
+## Choosing a format
+
+`denote.fileType` sets what new notes are written as — `org`, `markdown-yaml`, `markdown-toml` or `text`. It defaults to `org`.
+
+Existing notes are read in whatever dialect they already use, so changing this setting does not disturb anything already written, and a library containing all four is read correctly.
 
 ## If you don't use it
 

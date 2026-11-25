@@ -13,6 +13,8 @@ Point it at a directory of `.org` files and every one becomes a page you can rea
 
 Nothing is imported and nothing is converted. The files on disk stay exactly what Emacs wrote them as. Emacs keeps editing them. Denospace is another window onto the same directory, not a new home for your notes.
 
+**Markdown and plain text work too.** Org is the hard part and the reason this exists, but a library of `.md` or `.txt` notes is read and written just as happily — see [Formats](#formats) below.
+
 ## What that buys you
 
 Org is the best plain-text format there is for notes, and it is almost unusable away from Emacs. Every other tool that claims to read it flattens it into Markdown, loses your TODO keywords, mangles your drawers and writes the file back wrong.
@@ -24,6 +26,16 @@ Denospace parses Org properly — headings, folding, tables, source blocks, TODO
 - **Not a sync service.** Your files get where they need to be by whatever you already use: a folder on a server, Syncthing, or (soon) Dropbox. See [Sync and conflicts](/docs/sync-and-conflicts/).
 - **Not a replacement for Emacs.** It is deliberately the second-best place to edit your notes. Emacs is the first.
 - **Not a database.** There is no import step and no lock-in. Delete Denospace and you are left with the directory you started with.
+
+## Formats
+
+Denospace reads `.org`, `.md` and `.txt`.
+
+Markdown is in some ways the better-supported path: it is the native format of the editor this is built on, so it has had far more use than the Org parser, which is the newer and more experimental half of the project. If you keep a Denote library in Markdown, this works today and works well.
+
+Org is what the project is *for* — it is the format nothing else handles properly in a browser — but it is not a requirement.
+
+Front matter is read in whichever dialect the file uses: Org keywords, YAML between `---` fences, or TOML between `+++` fences, sniffed per file. A mixed library is fine. Set `denote.fileType` to choose what new notes are created as; it defaults to `org`.
 
 ## Denote, if you use it
 

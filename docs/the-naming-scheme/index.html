@@ -23,6 +23,9 @@
   <aside><ul class='nav'><li class='nav-section'>Start here</li><li><a href="/docs/what-it-is/" data-slug="what-it-is">What Denospace is</a></li><li><a href="/docs/connect-your-folder/" data-slug="connect-your-folder">Connect your folder</a></li><li><a href="/docs/your-first-note/" data-slug="your-first-note">Your first note</a></li><li><a href="/docs/links-and-backlinks/" data-slug="links-and-backlinks">Links and backlinks</a></li><li><a href="/docs/the-journal/" data-slug="the-journal">The journal</a></li><li class='nav-section'>Concepts</li><li><a href="/docs/org-support/" data-slug="org-support">What Org support covers</a></li><li><a href="/docs/how-links-resolve/" data-slug="how-links-resolve">How links resolve</a></li><li><a href="/docs/the-naming-scheme/" class="here" aria-current="page">The naming scheme</a></li><li><a href="/docs/sync-and-conflicts/" data-slug="sync-and-conflicts">Sync and conflicts</a></li><li class='nav-section'>Reference</li><li><a href="/docs/keybindings/" data-slug="keybindings">Keybindings</a></li><li><a href="/docs/commands/" data-slug="commands">Commands</a></li><li class='nav-section'>Integrations</li><li><a href="/docs/self-hosting/" data-slug="self-hosting">Self-hosting</a></li><li><a href="/docs/dropbox/" data-slug="dropbox">Dropbox</a></li><li><a href="/docs/zotero/" data-slug="zotero">Zotero</a></li><li class='nav-section'>Publishing</li><li><a href="/docs/publishing/" data-slug="publishing">Publishing a site</a></li><li><a href="/docs/templates-and-shortcodes/" data-slug="templates-and-shortcodes">Templates and shortcodes</a></li></ul></aside>
   <main><h1 id="the-naming-scheme">The naming scheme</h1>
 <p>Optional. Plain Org files in a plain directory work. This page is about what you get if you adopt <a href="https://protesilaos.com/emacs/denote">Denote</a>'s convention, which Denospace implements exactly.</p>
+<h2 id="it-is-not-an-org-convention">It is not an Org convention</h2>
+<p>Worth saying early, because the name misleads: Denote's scheme is about <strong>filenames</strong>, not file contents. It applies equally to Org, Markdown and plain text — and to files that are not notes at all, since a PDF or an image can carry the same name structure.</p>
+<p>Denospace implements all of it: <code>.org</code>, <code>.md</code> (YAML or TOML front matter) and <code>.txt</code>, with the dialect sniffed per file.</p>
 <h2 id="the-idea">The idea</h2>
 <p>A note's metadata lives in its <strong>filename</strong>:</p>
 <pre><code>20240322T131856==sig--some-title__topic1_topic2.org
@@ -38,6 +41,9 @@
 <p>That matters because the alternative is a library where half the files were named by Emacs and half by something that was <em>nearly</em> right, which is a mess you cannot undo by hand.</p>
 <h2 id="renaming">Renaming</h2>
 <p><code>Denote: Rename</code> and <code>Denote: Rename File from Front Matter</code> rewrite the filename from the note's own metadata. Change the title in the front matter, run the command, and the filename follows — keeping the identifier, so nothing that links to it breaks.</p>
+<h2 id="choosing-a-format">Choosing a format</h2>
+<p><code>denote.fileType</code> sets what new notes are written as — <code>org</code>, <code>markdown-yaml</code>, <code>markdown-toml</code> or <code>text</code>. It defaults to <code>org</code>.</p>
+<p>Existing notes are read in whatever dialect they already use, so changing this setting does not disturb anything already written, and a library containing all four is read correctly.</p>
 <h2 id="if-you-don-t-use-it">If you don't use it</h2>
 <p>Everything else works. Links by path, backlinks for those that are indexed, the journal, publishing, Org parsing. You lose rename-proof links and signature sequences, which are the two things the scheme buys.</p></main>
 </div>

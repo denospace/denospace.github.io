@@ -7,6 +7,8 @@ blurb: Which parts of Org are parsed, and which are not.
 
 # What Org support covers
 
+Denospace reads `.org`, `.md` and `.txt`. This page is about the Org half — Markdown is the native format of the editor underneath and needs no special explanation.
+
 Org is parsed by a real parser written for it, not by translating to Markdown first. That distinction is why round-tripping works: a file you edit here reopens in Emacs unchanged except for what you actually changed.
 
 ## Structure
