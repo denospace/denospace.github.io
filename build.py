@@ -83,6 +83,11 @@ def render(md):
                 body.append(lines[i][2:]); i += 1
             i -= 1
             out.append("<blockquote>" + inline(" ".join(body)) + "</blockquote>")
+        elif line.lstrip().startswith("<"):
+            raw = [line]
+            while i + 1 < len(lines) and lines[i + 1].strip():
+                i += 1; raw.append(lines[i])
+            out.append("\n".join(raw))
         elif line.strip():
             para = [line]
             while i + 1 < len(lines) and lines[i + 1].strip() and not re.match(r"^([-*>#|]|\d+\.|```)", lines[i + 1]):
@@ -141,7 +146,27 @@ def main():
            .replace("{{content}}", "".join(idx)))
     os.makedirs(os.path.join(ROOT, "docs"), exist_ok=True)
     open(os.path.join(ROOT, "docs", "index.html"), "w", encoding="utf8").write(out)
-    print(f"built {len(docs)} doc pages + index")
+    # standalone pages (landing, pricing, sla, roadmap) -- no sidebar
+    sdir = os.path.join(ROOT, "standalone")
+    count = 0
+    for f in sorted(os.listdir(sdir)):
+        if not f.endswith(".md"):
+            continue
+        meta, body = front_matter(open(os.path.join(sdir, f), encoding="utf8").read())
+        out = (TEMPLATE
+               .replace("{{title}}", html.escape(meta["title"]))
+               .replace("{{blurb}}", html.escape(meta.get("blurb", "")))
+               .replace("{{nav}}", "")
+               .replace("{{content}}", render(body))
+               .replace("<aside></aside>", ""))
+        if meta.get("layout") == "home":
+            out = out.replace('<body class="doc">', '<body class="home">')
+        dest = meta["path"].lstrip("/")
+        dest = os.path.join(ROOT, dest) if dest else os.path.join(ROOT, "index.html")
+        os.makedirs(os.path.dirname(dest), exist_ok=True)
+        open(dest, "w", encoding="utf8").write(out)
+        count += 1
+    print(f"built {len(docs)} doc pages + index, {count} standalone")
 
 
 if __name__ == "__main__":

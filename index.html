@@ -16,56 +16,32 @@
   <nav>
     <a href="/docs/">Docs</a>
     <a href="/pricing/">Pricing</a>
+    <a href="/roadmap/">Roadmap</a>
     <a href="https://github.com/denospace/denospace">Source</a>
   </nav>
 </header>
 <div class="shell">
   
-  <main>
-<header style="display:flex;align-items:center;gap:0.9rem;margin-bottom:2.4rem">
-  <img src="/logo.svg" alt="" width="56" height="56" style="border-radius:12px" />
-  <div><h1 style="font-size:2.1rem;margin:0;line-height:1">Denospace</h1>
-  <p style="color:var(--muted);font-style:italic;margin:.3rem 0 0;font-size:1rem">Org mode in the browser.</p></div>
+  <main><header style="display:flex;align-items:center;gap:0.9rem;margin-bottom:2.4rem">
+<img src="/logo.svg" alt="" width="56" height="56" style="border-radius:12px" />
+<div><h1 style="font-size:2.1rem;margin:0;line-height:1">Denospace</h1>
+<p style="color:var(--muted);font-style:italic;margin:.3rem 0 0;font-size:1rem">Org mode in the browser.</p></div>
 </header>
-
-<p style="font-size:1.12em">A web interface to a folder of <strong>Org mode</strong> files. Point it at a
-directory and every <code>.org</code> file becomes a page you can read and edit from a browser &mdash;
-on a laptop without your config, on a phone, anywhere.</p>
-
-<p>Nothing is imported and nothing is converted. The files stay exactly what Emacs wrote.
-Emacs keeps editing them. Denospace is another window onto the same directory.</p>
-
-<p><strong>Markdown and plain text work too.</strong> Org is the hard part and the reason this
-exists &mdash; but <code>.md</code> and <code>.txt</code> libraries are read and written just as
-happily, with front matter in Org keywords, YAML or TOML, sniffed per file.</p>
-
-<h2>Org, parsed properly</h2>
-<p>Not Markdown with a different extension. Headings and folding, tables, source blocks, your own
-<code>#+TODO:</code> sequences, footnotes, drawers, links and inline images &mdash; parsed by a parser
-written for Org, and written back as files Emacs reopens unchanged.</p>
-
-<h2>Your files stay yours</h2>
-<p>There is no sync engine here and there never will be. Your notes move between machines by
-whatever you already use &mdash; Syncthing, a server, git. The canonical copy is a folder on your own
-disk. If this project stopped tomorrow, nothing would need exporting.</p>
-
-<h2>Denote, if you want it</h2>
-<p>If your filenames follow the <a href="https://protesilaos.com/emacs/denote">Denote</a> scheme,
-Denospace reads it exactly: identifiers, keywords, signatures, and <code>denote:</code> links that
-survive renames. Byte-identical filenames to <code>denote.el</code>, checked against 1,713 recorded
-cases on every build.</p>
-<p>A feature, not a requirement. Plain Org files in a plain directory work fine.</p>
-
-<div style="border-left:3px solid var(--accent);padding:.1rem 0 .1rem 1rem;margin:2rem 0;color:var(--muted);font-size:.92em">
-<strong>Early days.</strong> It reads and edits a real four-thousand-note library every day, and parts
-of Org are still missing. Self-hosting works now; hosting is not open yet.
-</div>
-
+<p>A web interface to a folder of <strong>Org mode</strong> files. Point it at a directory and every <code>.org</code> file becomes a page you can read and edit from a browser — on a laptop without your config, on a phone, anywhere.</p>
+<p>Nothing is imported and nothing is converted. The files stay exactly what Emacs wrote. Emacs keeps editing them. Denospace is another window onto the same directory.</p>
+<p><strong>Markdown and plain text work too.</strong> Org is the hard part and the reason this exists — but <code>.md</code> and <code>.txt</code> libraries are read and written just as happily, with front matter in Org keywords, YAML or TOML, sniffed per file.</p>
+<h2 id="org-parsed-properly">Org, parsed properly</h2>
+<p>Not Markdown with a different extension. Headings and folding, tables, source blocks, your own <code>#+TODO:</code> sequences, priorities, footnotes, drawers, links and inline images — parsed by a parser written for Org, and written back as files Emacs reopens unchanged.</p>
+<h2 id="your-files-stay-yours">Your files stay yours</h2>
+<p>There is no sync engine here and there never will be. Your notes move between machines by whatever you already use — Syncthing, a server, git. The canonical copy is a folder on your own disk. If this project stopped tomorrow, nothing would need exporting.</p>
+<h2 id="denote-if-you-want-it">Denote, if you want it</h2>
+<p>If your filenames follow the <a href="https://protesilaos.com/emacs/denote">Denote</a> scheme, Denospace reads it exactly: identifiers, keywords, signatures, and <code>denote:</code> links that survive renames. Byte-identical filenames to <code>denote.el</code>, checked against 1,713 recorded cases on every build.</p>
+<p>A feature, not a requirement. Plain files in a plain directory work fine.</p>
+<blockquote><strong>Early days.</strong> It reads and edits a real four-thousand-note library every day, and parts of Org are still missing. Self-hosting works now; hosting is not open yet. See the <a href="/roadmap/">roadmap</a>.</blockquote>
 <p style="margin-top:2.4rem">
 <a href="/docs/" style="display:inline-block;text-decoration:none;border:1px solid var(--ink);border-radius:4px;padding:.5rem 1.1rem;font-size:.92em">Read the docs &rarr;</a>
 &nbsp;&nbsp;<a href="https://github.com/denospace/denospace" style="font-size:.92em">Source on GitHub</a>
-</p>
-</main>
+</p></main>
 </div>
 <footer>
   <p>Denospace is MIT licensed. <a href="https://github.com/denospace/denospace">Source on GitHub</a>.
