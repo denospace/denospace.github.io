@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Connect your folder — Denospace</title>
+<meta name="description" content="Getting Denospace pointed at your Org files." />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body class="doc">
+<header class="bar">
+  <a class="brand" href="/"><img src="/logo.svg" alt="" width="26" height="26" /><span>Denospace</span></a>
+  <nav>
+    <a href="/docs/">Docs</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="https://github.com/denospace/denospace">Source</a>
+  </nav>
+</header>
+<div class="shell">
+  <aside><ul class='nav'><li class='nav-section'>Start here</li><li><a href="/docs/what-it-is/" data-slug="what-it-is">What Denospace is</a></li><li><a href="/docs/connect-your-folder/" class="here" aria-current="page">Connect your folder</a></li><li><a href="/docs/your-first-note/" data-slug="your-first-note">Your first note</a></li><li><a href="/docs/links-and-backlinks/" data-slug="links-and-backlinks">Links and backlinks</a></li><li><a href="/docs/the-journal/" data-slug="the-journal">The journal</a></li><li class='nav-section'>Concepts</li><li><a href="/docs/org-support/" data-slug="org-support">What Org support covers</a></li><li><a href="/docs/how-links-resolve/" data-slug="how-links-resolve">How links resolve</a></li><li><a href="/docs/the-naming-scheme/" data-slug="the-naming-scheme">The naming scheme</a></li><li><a href="/docs/sync-and-conflicts/" data-slug="sync-and-conflicts">Sync and conflicts</a></li><li class='nav-section'>Reference</li><li><a href="/docs/keybindings/" data-slug="keybindings">Keybindings</a></li><li><a href="/docs/commands/" data-slug="commands">Commands</a></li><li class='nav-section'>Integrations</li><li><a href="/docs/self-hosting/" data-slug="self-hosting">Self-hosting</a></li><li><a href="/docs/dropbox/" data-slug="dropbox">Dropbox</a></li><li><a href="/docs/zotero/" data-slug="zotero">Zotero</a></li><li class='nav-section'>Publishing</li><li><a href="/docs/publishing/" data-slug="publishing">Publishing a site</a></li><li><a href="/docs/templates-and-shortcodes/" data-slug="templates-and-shortcodes">Templates and shortcodes</a></li></ul></aside>
+  <main><h1 id="connect-your-folder">Connect your folder</h1>
+<p>Denospace reads a directory. How that directory reaches the server is up to you, and the options differ in how much you have to run yourself.</p>
+<h2 id="today-a-directory-on-a-machine-you-run">Today: a directory on a machine you run</h2>
+<p>The one path that works right now. You run Denospace on a server — a VPS, a home machine, a seedbox — and give it a path:</p>
+<pre><code>denospace --space /home/you/org</code></pre>
+<p>It serves at <code>127.0.0.1:27438</code> by default. Put a reverse proxy in front of it for TLS. See <a href="/docs/self-hosting/">Self-hosting</a> for the full setup.</p>
+<p>How the files get to that directory is a question Denospace stays out of:</p>
+<ul><li><strong>Syncthing</strong> keeps a folder on your laptop and a folder on the server in step. No account, no third party, and it is what the author runs. Covered in <a href="/docs/self-hosting/">Self-hosting</a>.</li><li><strong>git</strong>, if your notes are already a repository and you don't mind committing.</li><li><strong>Nothing at all</strong> — edit over SSH, or just use the browser as the only client.</li></ul>
+<h2 id="soon-dropbox">Soon: Dropbox</h2>
+<p>A hosted Denospace that reads your Dropbox folder directly, so there is no server for you to run. This is <strong>not built yet</strong>; it is the next significant piece of work. <a href="/docs/dropbox/">Dropbox</a> describes how it will work and what it will be able to see.</p>
+<h2 id="which-files-it-picks-up">Which files it picks up</h2>
+<p>Every <code>.org</code> file under the directory, recursively, plus any attachments they reference. Subdirectories become part of the page name, so <code>projects/roof.org</code> is the page <code>projects/roof</code>.</p>
+<p>Files beginning with a dot are skipped. Emacs backup and lock files (<code><em>~</code>, <code>#</em>#</code>, <code>.#*</code>) should be excluded at the sync layer rather than synced and then ignored — there is a <code>.stignore</code> for Syncthing in <a href="/docs/self-hosting/">Self-hosting</a>.</p>
+<h2 id="a-warning-worth-reading-once">A warning worth reading once</h2>
+<p>If you sync a folder between macOS and Linux, you will eventually hit two problems that are not Denospace's doing and that it cannot fix for you:</p>
+<ul><li><strong>Case.</strong> macOS treats <code>Journal/</code> and <code>journal/</code> as the same directory. Linux does not. A sync between them stalls with an error naming both.</li><li><strong>Unicode.</strong> macOS stores filenames decomposed (<code>u</code> + combining diaeresis); Linux stores them composed (<code>ü</code>). The same name can appear twice.</li></ul>
+<p>Both are covered in <a href="/docs/sync-and-conflicts/">Sync and conflicts</a>.</p></main>
+</div>
+<footer>
+  <p>Denospace is MIT licensed. <a href="https://github.com/denospace/denospace">Source on GitHub</a>.
+  Set in <a href="/fonts/ET-BOOK-LICENSE.md">ET&nbsp;Book</a>.</p>
+</footer>
+</body>
+</html>

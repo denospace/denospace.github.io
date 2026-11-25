@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How links resolve — Denospace</title>
+<meta name="description" content="Why identifier links survive renames and path links do not." />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body class="doc">
+<header class="bar">
+  <a class="brand" href="/"><img src="/logo.svg" alt="" width="26" height="26" /><span>Denospace</span></a>
+  <nav>
+    <a href="/docs/">Docs</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="https://github.com/denospace/denospace">Source</a>
+  </nav>
+</header>
+<div class="shell">
+  <aside><ul class='nav'><li class='nav-section'>Start here</li><li><a href="/docs/what-it-is/" data-slug="what-it-is">What Denospace is</a></li><li><a href="/docs/connect-your-folder/" data-slug="connect-your-folder">Connect your folder</a></li><li><a href="/docs/your-first-note/" data-slug="your-first-note">Your first note</a></li><li><a href="/docs/links-and-backlinks/" data-slug="links-and-backlinks">Links and backlinks</a></li><li><a href="/docs/the-journal/" data-slug="the-journal">The journal</a></li><li class='nav-section'>Concepts</li><li><a href="/docs/org-support/" data-slug="org-support">What Org support covers</a></li><li><a href="/docs/how-links-resolve/" class="here" aria-current="page">How links resolve</a></li><li><a href="/docs/the-naming-scheme/" data-slug="the-naming-scheme">The naming scheme</a></li><li><a href="/docs/sync-and-conflicts/" data-slug="sync-and-conflicts">Sync and conflicts</a></li><li class='nav-section'>Reference</li><li><a href="/docs/keybindings/" data-slug="keybindings">Keybindings</a></li><li><a href="/docs/commands/" data-slug="commands">Commands</a></li><li class='nav-section'>Integrations</li><li><a href="/docs/self-hosting/" data-slug="self-hosting">Self-hosting</a></li><li><a href="/docs/dropbox/" data-slug="dropbox">Dropbox</a></li><li><a href="/docs/zotero/" data-slug="zotero">Zotero</a></li><li class='nav-section'>Publishing</li><li><a href="/docs/publishing/" data-slug="publishing">Publishing a site</a></li><li><a href="/docs/templates-and-shortcodes/" data-slug="templates-and-shortcodes">Templates and shortcodes</a></li></ul></aside>
+  <main><h1 id="how-links-resolve">How links resolve</h1>
+<p>There are two kinds of link to another note, and they fail differently.</p>
+<h2 id="path-links">Path links</h2>
+<pre class="lang-org"><code>[[file:projects/roof.org][the roof note]]</code></pre>
+<p>This names a location. It works until the file moves, and then it doesn't. Denospace follows it by resolving the path relative to the current page, and if nothing is there it draws the link as broken rather than pretending.</p>
+<h2 id="identifier-links">Identifier links</h2>
+<pre class="lang-org"><code>[[denote:20240125T164237][Court Costs]]</code></pre>
+<p>This names a <em>note</em>, by the identifier minted when it was created. Resolving it means scanning the library for a file whose name carries that identifier.</p>
+<p>The consequence is the useful part: <strong>rename the note, retitle it, add keywords, move it to another directory — the link still resolves.</strong> Nothing about the file's location or name is encoded in the link, so nothing about the link breaks when they change.</p>
+<p>This is why the naming scheme is worth adopting even if you dislike the filenames. It is the only way to have links that survive your own reorganising.</p>
+<h2 id="resolution-is-first-match-wins">Resolution is first-match-wins</h2>
+<p>An identifier is scanned for across the library, in name order, and the first file carrying it wins.</p>
+<p>In normal use identifiers are unique and this never matters. It matters in exactly one situation: if a stale copy of a note lingers — a file deleted behind the client's back, a conflict copy that kept its identifier — and its name sorts earlier, it captures every link to that identifier. The symptom is a note whose backlinks are mysteriously empty.</p>
+<p>The fix is to remove the duplicate. Reindexing alone will not help, because reindexing faithfully reproduces whatever the file list says.</p>
+<h2 id="backlinks">Backlinks</h2>
+<p>Backlinks are built from the index at write time rather than by searching at read time. That is why they are instant on a large library, and why they survive renames: the relation is stored against the identifier, not the filename.</p>
+<blockquote>Known gap: only <code>denote:</code> links currently produce backlinks. A bare Org link to another file resolves and is clickable, but does not yet register as a relation.</blockquote></main>
+</div>
+<footer>
+  <p>Denospace is MIT licensed. <a href="https://github.com/denospace/denospace">Source on GitHub</a>.
+  Set in <a href="/fonts/ET-BOOK-LICENSE.md">ET&nbsp;Book</a>.</p>
+</footer>
+</body>
+</html>

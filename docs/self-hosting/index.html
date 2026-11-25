@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Self-hosting — Denospace</title>
+<meta name="description" content="Running Denospace yourself, with Syncthing or without." />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body class="doc">
+<header class="bar">
+  <a class="brand" href="/"><img src="/logo.svg" alt="" width="26" height="26" /><span>Denospace</span></a>
+  <nav>
+    <a href="/docs/">Docs</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="https://github.com/denospace/denospace">Source</a>
+  </nav>
+</header>
+<div class="shell">
+  <aside><ul class='nav'><li class='nav-section'>Start here</li><li><a href="/docs/what-it-is/" data-slug="what-it-is">What Denospace is</a></li><li><a href="/docs/connect-your-folder/" data-slug="connect-your-folder">Connect your folder</a></li><li><a href="/docs/your-first-note/" data-slug="your-first-note">Your first note</a></li><li><a href="/docs/links-and-backlinks/" data-slug="links-and-backlinks">Links and backlinks</a></li><li><a href="/docs/the-journal/" data-slug="the-journal">The journal</a></li><li class='nav-section'>Concepts</li><li><a href="/docs/org-support/" data-slug="org-support">What Org support covers</a></li><li><a href="/docs/how-links-resolve/" data-slug="how-links-resolve">How links resolve</a></li><li><a href="/docs/the-naming-scheme/" data-slug="the-naming-scheme">The naming scheme</a></li><li><a href="/docs/sync-and-conflicts/" data-slug="sync-and-conflicts">Sync and conflicts</a></li><li class='nav-section'>Reference</li><li><a href="/docs/keybindings/" data-slug="keybindings">Keybindings</a></li><li><a href="/docs/commands/" data-slug="commands">Commands</a></li><li class='nav-section'>Integrations</li><li><a href="/docs/self-hosting/" class="here" aria-current="page">Self-hosting</a></li><li><a href="/docs/dropbox/" data-slug="dropbox">Dropbox</a></li><li><a href="/docs/zotero/" data-slug="zotero">Zotero</a></li><li class='nav-section'>Publishing</li><li><a href="/docs/publishing/" data-slug="publishing">Publishing a site</a></li><li><a href="/docs/templates-and-shortcodes/" data-slug="templates-and-shortcodes">Templates and shortcodes</a></li></ul></aside>
+  <main><h1 id="self-hosting">Self-hosting</h1>
+<p>Denospace is MIT licensed and self-hosting is a first-class path, not a grudging one. Everything the hosted service will do, a self-hosted instance does.</p>
+<h2 id="running-it">Running it</h2>
+<p>Build it, point it at a directory, put a reverse proxy in front for TLS:</p>
+<pre><code>denospace --space /home/you/org</code></pre>
+<p>It binds <code>127.0.0.1:27438</code> by default and does not listen publicly on its own. Configuration lives in an environment file; authentication is a username and password you set there.</p>
+<p>Build requirements are Node and a Rust toolchain. A release build embeds the client, so a change to the TypeScript still needs the Rust step to reach what is served.</p>
+<h2 id="syncthing">Syncthing</h2>
+<p>The arrangement the author runs: a folder on the laptop, a folder on the server, kept in step by <a href="https://syncthing.net/">Syncthing</a>. No account, no third party, nothing billed.</p>
+<p>Exclude Emacs's scratch files at the sync layer with a <code>.stignore</code> in the folder:</p>
+<pre><code>*~
+#*#
+.#*
+.git</code></pre>
+<p>Keep conflict copies <strong>synced</strong> rather than ignored, so you can see them — then hide them from the page picker with the space's ignore setting instead. A conflict you cannot see is worse than one cluttering a list.</p>
+<h2 id="service-management">Service management</h2>
+<p>There is no systemd on every host. A supervisor of some kind, or a cron <code>@reboot</code> entry plus a periodic liveness check, is enough. The binary is a single process.</p>
+<h2 id="browser-caching">Browser caching</h2>
+<p>Denospace is a progressive web app and registers a service worker, which answers before the network does. After deploying a new build, a browser will keep serving the old client and a hard reload will not dislodge it — you have to unregister the service worker or clear the site's data.</p>
+<p>This catches everyone once. If a new feature does not appear after a deploy, check this before you check the deploy.</p></main>
+</div>
+<footer>
+  <p>Denospace is MIT licensed. <a href="https://github.com/denospace/denospace">Source on GitHub</a>.
+  Set in <a href="/fonts/ET-BOOK-LICENSE.md">ET&nbsp;Book</a>.</p>
+</footer>
+</body>
+</html>

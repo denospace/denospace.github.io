@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Templates and shortcodes — Denospace</title>
+<meta name="description" content="Controlling how published pages look." />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body class="doc">
+<header class="bar">
+  <a class="brand" href="/"><img src="/logo.svg" alt="" width="26" height="26" /><span>Denospace</span></a>
+  <nav>
+    <a href="/docs/">Docs</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="https://github.com/denospace/denospace">Source</a>
+  </nav>
+</header>
+<div class="shell">
+  <aside><ul class='nav'><li class='nav-section'>Start here</li><li><a href="/docs/what-it-is/" data-slug="what-it-is">What Denospace is</a></li><li><a href="/docs/connect-your-folder/" data-slug="connect-your-folder">Connect your folder</a></li><li><a href="/docs/your-first-note/" data-slug="your-first-note">Your first note</a></li><li><a href="/docs/links-and-backlinks/" data-slug="links-and-backlinks">Links and backlinks</a></li><li><a href="/docs/the-journal/" data-slug="the-journal">The journal</a></li><li class='nav-section'>Concepts</li><li><a href="/docs/org-support/" data-slug="org-support">What Org support covers</a></li><li><a href="/docs/how-links-resolve/" data-slug="how-links-resolve">How links resolve</a></li><li><a href="/docs/the-naming-scheme/" data-slug="the-naming-scheme">The naming scheme</a></li><li><a href="/docs/sync-and-conflicts/" data-slug="sync-and-conflicts">Sync and conflicts</a></li><li class='nav-section'>Reference</li><li><a href="/docs/keybindings/" data-slug="keybindings">Keybindings</a></li><li><a href="/docs/commands/" data-slug="commands">Commands</a></li><li class='nav-section'>Integrations</li><li><a href="/docs/self-hosting/" data-slug="self-hosting">Self-hosting</a></li><li><a href="/docs/dropbox/" data-slug="dropbox">Dropbox</a></li><li><a href="/docs/zotero/" data-slug="zotero">Zotero</a></li><li class='nav-section'>Publishing</li><li><a href="/docs/publishing/" data-slug="publishing">Publishing a site</a></li><li><a href="/docs/templates-and-shortcodes/" class="here" aria-current="page">Templates and shortcodes</a></li></ul></aside>
+  <main><h1 id="templates-and-shortcodes">Templates and shortcodes</h1>
+<h2 id="shortcodes">Shortcodes</h2>
+<p>Published notes can carry shortcodes that render to richer HTML than Org alone describes. The supported set follows the Tufte conventions the author's own site is built on:</p>
+<table><thead><tr><th>Shortcode</th><th>Renders</th></tr></thead><tbody><tr><td><code>{{&lt; marginnote &gt;}}…{{&lt; /marginnote &gt;}}</code></td><td>A note in the margin, beside the text rather than below it</td></tr><tr><td><code>{{&lt; figure src="…" caption="…" &gt;}}</code></td><td>A figure with its caption in the gutter</td></tr><tr><td><code>{{&lt; figure src="…" full &gt;}}</code></td><td>A full-width figure</td></tr><tr><td><code>{{&lt; vimeo id &gt;}}</code></td><td>An embedded video</td></tr></tbody></table>
+<p>A <code>marginnote</code> may contain a <code>figure</code>, so the pairing is matched before the standalone form.</p>
+<h2 id="why-these-and-not-a-template-language">Why these and not a template language</h2>
+<p>Because these are the ones the content already uses. A generator that ignored them would quietly flatten half the writing it was given — margin notes are not decoration in a Tufte-styled site, they are where a good deal of the argument lives.</p>
+<h2 id="the-tufte-view">The Tufte view</h2>
+<p>The editor itself has a third display mode that matches the published result: the same serif, the same measure, the same hierarchy of size and italics rather than weight. Writing in it means what you see while drafting is close to what a reader gets.</p>
+<p>It is a view of the file, not a change to it. Nothing about the Org source differs between modes.</p></main>
+</div>
+<footer>
+  <p>Denospace is MIT licensed. <a href="https://github.com/denospace/denospace">Source on GitHub</a>.
+  Set in <a href="/fonts/ET-BOOK-LICENSE.md">ET&nbsp;Book</a>.</p>
+</footer>
+</body>
+</html>

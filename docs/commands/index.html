@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Commands — Denospace</title>
+<meta name="description" content="The command palette, by namespace." />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body class="doc">
+<header class="bar">
+  <a class="brand" href="/"><img src="/logo.svg" alt="" width="26" height="26" /><span>Denospace</span></a>
+  <nav>
+    <a href="/docs/">Docs</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="https://github.com/denospace/denospace">Source</a>
+  </nav>
+</header>
+<div class="shell">
+  <aside><ul class='nav'><li class='nav-section'>Start here</li><li><a href="/docs/what-it-is/" data-slug="what-it-is">What Denospace is</a></li><li><a href="/docs/connect-your-folder/" data-slug="connect-your-folder">Connect your folder</a></li><li><a href="/docs/your-first-note/" data-slug="your-first-note">Your first note</a></li><li><a href="/docs/links-and-backlinks/" data-slug="links-and-backlinks">Links and backlinks</a></li><li><a href="/docs/the-journal/" data-slug="the-journal">The journal</a></li><li class='nav-section'>Concepts</li><li><a href="/docs/org-support/" data-slug="org-support">What Org support covers</a></li><li><a href="/docs/how-links-resolve/" data-slug="how-links-resolve">How links resolve</a></li><li><a href="/docs/the-naming-scheme/" data-slug="the-naming-scheme">The naming scheme</a></li><li><a href="/docs/sync-and-conflicts/" data-slug="sync-and-conflicts">Sync and conflicts</a></li><li class='nav-section'>Reference</li><li><a href="/docs/keybindings/" data-slug="keybindings">Keybindings</a></li><li><a href="/docs/commands/" class="here" aria-current="page">Commands</a></li><li class='nav-section'>Integrations</li><li><a href="/docs/self-hosting/" data-slug="self-hosting">Self-hosting</a></li><li><a href="/docs/dropbox/" data-slug="dropbox">Dropbox</a></li><li><a href="/docs/zotero/" data-slug="zotero">Zotero</a></li><li class='nav-section'>Publishing</li><li><a href="/docs/publishing/" data-slug="publishing">Publishing a site</a></li><li><a href="/docs/templates-and-shortcodes/" data-slug="templates-and-shortcodes">Templates and shortcodes</a></li></ul></aside>
+  <main><h1 id="commands">Commands</h1>
+<p><code>Ctrl-/</code> opens the palette. Everything is reachable from it; type any fragment of a name.</p>
+<p>Commands are grouped by namespace. The largest are <code>Editor</code>, <code>Denote</code>, <code>Navigate</code>, <code>Revision</code> and <code>Zotero</code>.</p>
+<h2 id="denote">Denote</h2>
+<table><thead><tr><th>Command</th><th>Emacs equivalent</th></tr></thead><tbody><tr><td><code>Denote: New Note</code></td><td><code>denote</code></td></tr><tr><td><code>Denote: New Note with Signature</code></td><td><code>denote-signature</code></td></tr><tr><td><code>Denote: Insert or Edit Link</code> (<code>Alt-i</code>)</td><td><code>denote-link-or-create</code>, <code>org-insert-link</code></td></tr><tr><td><code>Denote: Insert Web Link</code> (<code>Shift-Alt-i</code>)</td><td><code>org-insert-link</code>, <code>org-cliplink</code></td></tr><tr><td><code>Denote: Toggle Link Display</code></td><td><code>org-toggle-link-display</code></td></tr><tr><td><code>Denote: Rename</code></td><td><code>denote-rename-file</code></td></tr><tr><td><code>Denote: Rename File from Front Matter</code></td><td><code>denote-rename-file-using-front-matter</code></td></tr><tr><td><code>Denote: Add Keywords</code> / <code>Remove Keywords</code></td><td><code>denote-keywords-add</code> / <code>-remove</code></td></tr><tr><td><code>Denote: Set Signature</code></td><td><code>denote-rename-file-signature</code></td></tr><tr><td><code>Denote: Browse by Signature</code></td><td><code>denote-sort-dired</code></td></tr><tr><td><code>Denote: Signature Parent</code> / <code>Children</code> / <code>Siblings</code> / <code>Next</code> / <code>Previous</code></td><td><code>denote-sequence-find</code></td></tr><tr><td><code>Denote: New Child Note</code> / <code>New Sibling Note</code></td><td><code>denote-sequence-new-child-of-current</code> / <code>-sibling-of-current</code></td></tr><tr><td><code>Denote: Find Link</code> / <code>Find Backlink</code></td><td><code>denote-find-link</code> / <code>denote-find-backlink</code></td></tr><tr><td><code>Denote: Random Note</code></td><td><code>denote-explore-random-note</code></td></tr><tr><td><code>Denote: Signatures Page</code>, <code>Keywords Page</code>, <code>Library Health</code></td><td><code>denote-sequence-dired</code>, <code>denote-explore-*</code></td></tr><tr><td><code>Denote: Journal Calendar</code> / <code>Journal Open Date</code></td><td><code>denote-journal-calendar</code></td></tr><tr><td><code>Denote: Update Dynamic Blocks</code></td><td><code>org-update-all-dblocks</code></td></tr><tr><td><code>Denote: Insert Links Block</code> and siblings</td><td><code>denote-org-extras-dblock-insert-*</code></td></tr></tbody></table>
+<h2 id="zotero">Zotero</h2>
+<table><thead><tr><th>Command</th><th>Emacs equivalent</th></tr></thead><tbody><tr><td><code>Zotero: Insert Citation</code></td><td><code>citar-insert-citation</code></td></tr><tr><td><code>Zotero: New Reference Note</code></td><td><code>citar-denote-create-note</code></td></tr><tr><td><code>Zotero: Add File</code></td><td>—</td></tr><tr><td><code>Zotero: Sync Reference Notes</code></td><td>—</td></tr><tr><td><code>Zotero: Sync Library</code> / <code>Resync Library</code></td><td>—</td></tr></tbody></table>
+<h2 id="everything-else">Everything else</h2>
+<p><code>Editor:</code>, <code>Navigate:</code>, <code>Page:</code>, <code>Space:</code>, <code>Outline:</code>, <code>Revision:</code>, <code>Blog:</code> and others are discoverable from the palette.</p>
+<blockquote>This page lists the commands worth knowing by name and their Emacs counterparts. It is <strong>not</strong> the complete registry — commands are declared in three different places in the codebase, so a trustworthy exhaustive list has to be dumped from the running application rather than written by hand. Generating that page automatically is a known task; until it exists, the palette itself is the authority.</blockquote></main>
+</div>
+<footer>
+  <p>Denospace is MIT licensed. <a href="https://github.com/denospace/denospace">Source on GitHub</a>.
+  Set in <a href="/fonts/ET-BOOK-LICENSE.md">ET&nbsp;Book</a>.</p>
+</footer>
+</body>
+</html>

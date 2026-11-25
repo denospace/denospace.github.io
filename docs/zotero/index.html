@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Zotero — Denospace</title>
+<meta name="description" content="Optional. Reference notes and citations from your library." />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body class="doc">
+<header class="bar">
+  <a class="brand" href="/"><img src="/logo.svg" alt="" width="26" height="26" /><span>Denospace</span></a>
+  <nav>
+    <a href="/docs/">Docs</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="https://github.com/denospace/denospace">Source</a>
+  </nav>
+</header>
+<div class="shell">
+  <aside><ul class='nav'><li class='nav-section'>Start here</li><li><a href="/docs/what-it-is/" data-slug="what-it-is">What Denospace is</a></li><li><a href="/docs/connect-your-folder/" data-slug="connect-your-folder">Connect your folder</a></li><li><a href="/docs/your-first-note/" data-slug="your-first-note">Your first note</a></li><li><a href="/docs/links-and-backlinks/" data-slug="links-and-backlinks">Links and backlinks</a></li><li><a href="/docs/the-journal/" data-slug="the-journal">The journal</a></li><li class='nav-section'>Concepts</li><li><a href="/docs/org-support/" data-slug="org-support">What Org support covers</a></li><li><a href="/docs/how-links-resolve/" data-slug="how-links-resolve">How links resolve</a></li><li><a href="/docs/the-naming-scheme/" data-slug="the-naming-scheme">The naming scheme</a></li><li><a href="/docs/sync-and-conflicts/" data-slug="sync-and-conflicts">Sync and conflicts</a></li><li class='nav-section'>Reference</li><li><a href="/docs/keybindings/" data-slug="keybindings">Keybindings</a></li><li><a href="/docs/commands/" data-slug="commands">Commands</a></li><li class='nav-section'>Integrations</li><li><a href="/docs/self-hosting/" data-slug="self-hosting">Self-hosting</a></li><li><a href="/docs/dropbox/" data-slug="dropbox">Dropbox</a></li><li><a href="/docs/zotero/" class="here" aria-current="page">Zotero</a></li><li class='nav-section'>Publishing</li><li><a href="/docs/publishing/" data-slug="publishing">Publishing a site</a></li><li><a href="/docs/templates-and-shortcodes/" data-slug="templates-and-shortcodes">Templates and shortcodes</a></li></ul></aside>
+  <main><h1 id="zotero">Zotero</h1>
+<p>Optional, and deliberately so. Denospace works fully without a Zotero account; this is for people who already keep references there.</p>
+<h2 id="what-it-does">What it does</h2>
+<p>Syncs your Zotero library so that references are available inside your notes:</p>
+<ul><li><code>Zotero: Insert Citation</code> — pick a reference and insert a citation</li><li><code>Zotero: New Reference Note</code> — create a note attached to a reference</li><li><code>Zotero: Sync Library</code> — pull the library; <code>Resync Library</code> rebuilds it</li><li><code>Zotero: Add File</code> — attach a file to a reference</li></ul>
+<h2 id="interoperability-with-citar-denote">Interoperability with citar-denote</h2>
+<p>Reference notes carry <code>#+reference: citekey</code> and the <code>bib</code> keyword, which is the <code>citar-denote</code> convention. That means <code>citar-denote-open-note</code> in Emacs finds the same notes Denospace creates, and vice versa.</p>
+<p>If you use <code>citar</code> and <code>citar-denote</code> already, the two sides agree without configuration.</p>
+<h2 id="credentials">Credentials</h2>
+<p>Syncing needs a Zotero API key, which lives in your space configuration on the server. Treat that file as a secret: it grants read access to your Zotero library.</p>
+<h2 id="attachments">Attachments</h2>
+<p>PDFs and other attachments can be pulled from Zotero on demand rather than mirrored wholesale. A large library is a lot of bytes, and most of them are files you will never open from a browser.</p></main>
+</div>
+<footer>
+  <p>Denospace is MIT licensed. <a href="https://github.com/denospace/denospace">Source on GitHub</a>.
+  Set in <a href="/fonts/ET-BOOK-LICENSE.md">ET&nbsp;Book</a>.</p>
+</footer>
+</body>
+</html>

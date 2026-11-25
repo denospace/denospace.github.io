@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Your first note — Denospace</title>
+<meta name="description" content="Creating, naming and finding notes." />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body class="doc">
+<header class="bar">
+  <a class="brand" href="/"><img src="/logo.svg" alt="" width="26" height="26" /><span>Denospace</span></a>
+  <nav>
+    <a href="/docs/">Docs</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="https://github.com/denospace/denospace">Source</a>
+  </nav>
+</header>
+<div class="shell">
+  <aside><ul class='nav'><li class='nav-section'>Start here</li><li><a href="/docs/what-it-is/" data-slug="what-it-is">What Denospace is</a></li><li><a href="/docs/connect-your-folder/" data-slug="connect-your-folder">Connect your folder</a></li><li><a href="/docs/your-first-note/" class="here" aria-current="page">Your first note</a></li><li><a href="/docs/links-and-backlinks/" data-slug="links-and-backlinks">Links and backlinks</a></li><li><a href="/docs/the-journal/" data-slug="the-journal">The journal</a></li><li class='nav-section'>Concepts</li><li><a href="/docs/org-support/" data-slug="org-support">What Org support covers</a></li><li><a href="/docs/how-links-resolve/" data-slug="how-links-resolve">How links resolve</a></li><li><a href="/docs/the-naming-scheme/" data-slug="the-naming-scheme">The naming scheme</a></li><li><a href="/docs/sync-and-conflicts/" data-slug="sync-and-conflicts">Sync and conflicts</a></li><li class='nav-section'>Reference</li><li><a href="/docs/keybindings/" data-slug="keybindings">Keybindings</a></li><li><a href="/docs/commands/" data-slug="commands">Commands</a></li><li class='nav-section'>Integrations</li><li><a href="/docs/self-hosting/" data-slug="self-hosting">Self-hosting</a></li><li><a href="/docs/dropbox/" data-slug="dropbox">Dropbox</a></li><li><a href="/docs/zotero/" data-slug="zotero">Zotero</a></li><li class='nav-section'>Publishing</li><li><a href="/docs/publishing/" data-slug="publishing">Publishing a site</a></li><li><a href="/docs/templates-and-shortcodes/" data-slug="templates-and-shortcodes">Templates and shortcodes</a></li></ul></aside>
+  <main><h1 id="your-first-note">Your first note</h1>
+<p>Press <code>Ctrl-k</code> to open the page picker. Type a name that doesn't exist yet and the first row offers to create it.</p>
+<p>That is the whole loop: everything in Denospace is reached by typing part of its name.</p>
+<h2 id="what-gets-written">What gets written</h2>
+<p>A new note is a <code>.org</code> file with Org keywords at the top:</p>
+<pre class="lang-org"><code>#+title:      Roof repair
+#+date:       [2026-11-25 Tue 14:02]
+#+filetags:   :house:maintenance:
+#+identifier: 20261125T140233</code></pre>
+<p>If you are not using the Denote naming scheme, the file is named after the title and the <code>#+identifier:</code> is harmless. If you are, the filename carries that identifier and the keywords too — see <a href="/docs/the-naming-scheme/">The naming scheme</a>.</p>
+<h2 id="editing">Editing</h2>
+<p>The editor is Org-aware rather than Org-flavoured:</p>
+<ul><li><code>Tab</code> cycles folding on a headline — folded, children, subtree. <code>Shift-Tab</code> does the whole buffer.</li><li><code>Alt-j</code> / <code>Alt-k</code> move an item down or up; <code>Alt-l</code> / <code>Alt-h</code> indent and outdent. These follow <code>evil-org</code>.</li><li>TODO keywords cycle, and your own <code>#+TODO:</code> sequence is respected.</li><li>Tables, source blocks, footnotes and drawers all parse.</li></ul>
+<p>There is a vim mode. It is off by default and there is a command to turn it on; <code>j</code> and <code>k</code> can be bound to move by visual line the way <code>evil-cross-lines</code> does in Emacs.</p>
+<h2 id="finding-things-again">Finding things again</h2>
+<ul><li><code>Ctrl-k</code> — pages by name</li><li><code>Ctrl-/</code> — the command palette</li><li><code>Ctrl-j</code> — jump within the current page</li></ul>
+<p>The picker matches on fragments, so <code>roo rep</code> finds <code>Roof repair</code>. If you use Denote keywords or signatures, those are searchable too.</p>
+<h2 id="attachments">Attachments</h2>
+<p>Paste an image and it is written next to your notes as a file and linked with <code>[[file:...]]</code>. Set a width with an Org attribute line directly above the link:</p>
+<pre class="lang-org"><code>#+ATTR_ORG: :width 400
+[[file:20261125T140233--roof-damage.jpg]]</code></pre>
+<p>That is standard Org, and Emacs honours it too.</p></main>
+</div>
+<footer>
+  <p>Denospace is MIT licensed. <a href="https://github.com/denospace/denospace">Source on GitHub</a>.
+  Set in <a href="/fonts/ET-BOOK-LICENSE.md">ET&nbsp;Book</a>.</p>
+</footer>
+</body>
+</html>
