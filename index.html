@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Denospace — Org mode and Denote, in the browser</title>
+<meta name="description" content="A web interface to a Denote library. Point it at your denote-directory and every note becomes a page. Nothing is converted; Emacs can keep editing." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<meta property="og:title" content="Denospace" />
+<meta property="og:description" content="Org mode and Denote, in the browser." />
+<meta property="og:type" content="website" />
+<style>
+  @font-face {
+    font-family: "et-book"; font-style: normal; font-weight: normal;
+    src: url("fonts/et-book-roman.woff") format("woff"); font-display: swap;
+  }
+  @font-face {
+    font-family: "et-book"; font-style: italic; font-weight: normal;
+    src: url("fonts/et-book-italic.woff") format("woff"); font-display: swap;
+  }
+  @font-face {
+    font-family: "et-book"; font-style: normal; font-weight: bold;
+    src: url("fonts/et-book-bold.woff") format("woff"); font-display: swap;
+  }
+
+  :root {
+    --paper: #f9f9f9;
+    --ink: #111;
+    --muted: #5b5853;
+    --rule: #ddd;
+    --accent: #b4472e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #151513; --ink: #f0eee4; --muted: #9a938a;
+      --rule: #2e2b28; --accent: #e0663f;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: et-book, Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    font-size: 21px;
+    line-height: 1.52;
+    padding: 0 16px;
+  }
+  .wrap { max-width: 34em; margin: 0 auto; padding: 9vh 0 6rem; }
+
+  header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 2.6rem; }
+  header img { width: 56px; height: 56px; border-radius: 12px; display: block; }
+  h1 { font-size: 2.1rem; margin: 0; line-height: 1; letter-spacing: -0.01em; }
+  .tagline { color: var(--muted); font-style: italic; margin: 0.3rem 0 0; font-size: 1rem; }
+
+  .lead { font-size: 1.12em; margin: 0 0 1.6rem; }
+  p { margin: 0 0 1.25rem; }
+  h2 {
+    font-size: 1rem; font-style: italic; font-weight: normal;
+    color: var(--muted); margin: 3rem 0 0.9rem;
+    border-bottom: 1px solid var(--rule); padding-bottom: 0.35rem;
+  }
+  code {
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: 0.78em; background: color-mix(in srgb, var(--ink) 7%, transparent);
+    padding: 0.1em 0.34em; border-radius: 3px;
+  }
+  ul { padding-left: 1.1rem; margin: 0 0 1.25rem; }
+  li { margin-bottom: 0.6rem; }
+  a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { color: var(--accent); }
+
+  .note {
+    border-left: 3px solid var(--accent);
+    padding: 0.1rem 0 0.1rem 1rem;
+    margin: 2rem 0; color: var(--muted); font-size: 0.92em;
+  }
+  .cta { margin: 2.4rem 0 0; }
+  .cta a {
+    display: inline-block; text-decoration: none;
+    border: 1px solid var(--ink); border-radius: 4px;
+    padding: 0.5rem 1.1rem; font-size: 0.92em;
+  }
+  .cta a:hover { background: var(--ink); color: var(--paper); }
+
+  footer {
+    margin-top: 4.5rem; padding-top: 1.2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.78em; color: var(--muted); line-height: 1.5;
+  }
+  footer p { margin: 0 0 0.6rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <img src="logo.svg" alt="" width="56" height="56" />
+    <div>
+      <h1>Denospace</h1>
+      <p class="tagline">Org mode and Denote, in the browser.</p>
+    </div>
+  </header>
+
+  <p class="lead">
+    A web interface to a <a href="https://protesilaos.com/emacs/denote">Denote</a>
+    library. Point it at your <code>denote-directory</code> and every note becomes
+    a page.
+  </p>
+
+  <p>
+    Nothing is converted and nothing is imported. The files on disk stay exactly
+    what Emacs wrote, and Emacs can keep editing them while you read and write
+    the same notes from a browser or a phone.
+  </p>
+
+  <h2>What it does with your library</h2>
+  <ul>
+    <li>A note's <code>#+title:</code> becomes its title, and its keywords become tags.</li>
+    <li><code>denote:</code> links resolve by identifier and become bidirectional, so every note shows what points at it.</li>
+    <li>Signatures are read as sequences, so a Johnny Decimal address knows its own parents, children and siblings.</li>
+    <li>Journal entries work the way <code>denote-journal</code> does — the day comes from the identifier, not the front matter.</li>
+    <li>Org is parsed properly rather than approximated: headings, tables, source blocks, TODO keywords, footnotes and folding.</li>
+  </ul>
+
+  <h2>Why a fork</h2>
+  <p>
+    It is built on <a href="https://silverbullet.md">SilverBullet</a>, which is
+    extensible through plugs — but a plug cannot register a language, and Org
+    needs a real parser. So this is a fork rather than an add-on.
+  </p>
+
+  <div class="note">
+    <strong>Proof of concept.</strong> It reads and edits a real four-thousand-note
+    library every day, but it is early, and parts of Org and Denote are still
+    missing. The repository is honest about which.
+  </div>
+
+  <div class="cta">
+    <a href="https://github.com/denospace/denospace">Read the source on GitHub →</a>
+  </div>
+
+  <footer>
+    <p>
+      MIT licensed, as <a href="https://github.com/silverbulletmd/silverbullet">SilverBullet</a>
+      is. Denote is Protesilaos Stavrou's; <code>denote.el</code> is GPL and none
+      of it is used here — the file-naming scheme is implemented independently so
+      that Emacs and Denospace can edit one library.
+    </p>
+    <p>
+      Set in <a href="fonts/ET-BOOK-LICENSE.md">ET&nbsp;Book</a>, by Dmitry Krasny,
+      Bonnie Scranton and Edward Tufte.
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
