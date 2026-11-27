@@ -41,7 +41,7 @@
 <p>Denospace produces byte-identical filenames to <code>denote.el</code>. This is not approximate: the sluggification rules were derived from 1,713 recorded input/output pairs of the real tool and are checked against them on every build, plus a four-thousand-note library as an independent test.</p>
 <p>That matters because the alternative is a library where half the files were named by Emacs and half by something that was <em>nearly</em> right, which is a mess you cannot undo by hand.</p>
 <h2 id="renaming">Renaming</h2>
-<p><code>Denote: Rename</code> and <code>Denote: Rename File from Front Matter</code> rewrite the filename from the note's own metadata. Change the title in the front matter, run the command, and the filename follows — keeping the identifier, so nothing that links to it breaks.</p>
+<p><code>Note: Rename</code> and <code>Note: Rename from Front Matter</code> rewrite the filename from the note's own metadata. Change the title in the front matter, run the command, and the filename follows — keeping the identifier, so nothing that links to it breaks.</p>
 <h2 id="choosing-a-format">Choosing a format</h2>
 <p><code>denote.fileType</code> sets what new notes are written as — <code>org</code>, <code>markdown-yaml</code>, <code>markdown-toml</code> or <code>text</code>. It defaults to <code>org</code>.</p>
 <p>Existing notes are read in whatever dialect they already use, so changing this setting does not disturb anything already written, and a library containing all four is read correctly.</p>

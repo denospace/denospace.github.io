@@ -20,7 +20,10 @@ Outline motions follow `evil-org`. Folding follows `org-cycle`.
 | `Return` | Follow the link under the cursor (vim normal mode) | `org-return-follows-link` |
 | `Ctrl-k` | Page picker | — |
 | `Ctrl-/` | Command palette | `M-x` |
+| `Alt-/` | Search the library, line by line | `denote-grep` / `consult-denote-grep` |
 | `Ctrl-q j` | Today's journal entry | `denote-journal-new-or-existing-entry` |
+| `Ctrl-q p` / `Ctrl-q n` | Previous / next journal entry that exists | — |
+| `Shift-Alt-t` | Signature browser, docked | `denote-sequence-dired` |
 
 ## Alt on macOS
 

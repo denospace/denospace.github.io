@@ -25,8 +25,9 @@ The practical consequence: Emacs and Denospace agree on which file is today's, a
 |---|---|
 | `Journal: Today` (`Ctrl-q j`) | Open or create today's entry |
 | `Journal: Open Date` | Pick any date |
-| `Journal: Next` / `Previous` | Walk entries that exist, skipping empty days |
-| `Denote: Journal Calendar` | A year at a glance, with the days that have entries |
+| `Journal: Next Day` (`Ctrl-q n`) / `Previous Day` (`Ctrl-q p`) | Walk entries that exist, skipping empty days |
+| `Journal: Calendar` | A year at a glance, with the days that have entries |
+| `Journal: Picker` | Every entry, newest first |
 
 ## Configuration
 

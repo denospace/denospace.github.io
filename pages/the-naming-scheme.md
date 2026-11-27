@@ -44,7 +44,7 @@ That matters because the alternative is a library where half the files were name
 
 ## Renaming
 
-`Denote: Rename` and `Denote: Rename File from Front Matter` rewrite the filename from the note's own metadata. Change the title in the front matter, run the command, and the filename follows — keeping the identifier, so nothing that links to it breaks.
+`Note: Rename` and `Note: Rename from Front Matter` rewrite the filename from the note's own metadata. Change the title in the front matter, run the command, and the filename follows — keeping the identifier, so nothing that links to it breaks.
 
 ## Choosing a format
 
