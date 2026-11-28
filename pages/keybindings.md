@@ -24,6 +24,7 @@ Outline motions follow `evil-org`. Folding follows `org-cycle`.
 | `Ctrl-q j` | Today's journal entry | `denote-journal-new-or-existing-entry` |
 | `Ctrl-q p` / `Ctrl-q n` | Previous / next journal entry that exists | — |
 | `Shift-Alt-t` | Signature browser, docked | `denote-sequence-dired` |
+| `Shift-Left` / `Shift-Right` | Collapse / expand a whole tree panel | — |
 
 ## Alt on macOS
 

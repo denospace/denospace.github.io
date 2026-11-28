@@ -68,8 +68,11 @@ The names are the ones `denote-prompts` uses — `title`, `keywords`, `signature
 | `Search: Exclude Files` / `Only Include Files` | `denote-query-exclude-files` / `-only-include` |
 | `Search: Exclude Keyword` / `Only Keyword` | `denote-query-*-keywords` |
 | `Search: Clear Filters` | — |
+| `Navigate: Collapse All` / `Expand All` (`Shift-Left` / `Shift-Right`) | — |
 
 One search, two ways in, as Denote has: as a modal it closes on the match you take; docked left or right it stays open while you walk the matches. The filters are buffer-local the way Denote's are — part of the search in front of you, gone next time.
+
+Any tree — the signature browser, the journal, the space tree — collapses whole with `Shift-Left` and opens again with `Shift-Right`, at every depth. The two commands do the same thing from the palette, for when the tree does not have focus; neither carries a key of its own, because an unmodified keystroke never leaves the panel's filter box. With a filter typed both refuse and say so: a filtered tree is expanded to show its matches, so the change would be invisible now and a surprise later. What you collapse is remembered per view.
 
 ## Journal
 
@@ -107,4 +110,4 @@ Seven commands SilverBullet ships are withdrawn, because they think in **paths**
 
 `Editor:`, `Navigate:`, `Page:`, `Space:`, `Outline:`, `Library:`, `Blog:` and a dozen more are discoverable from the palette.
 
-> This page lists the commands worth knowing by name. It is **not** the complete registry: commands are declared in four different places in the codebase — plug manifests, library Lua, view and navigator definitions, and the client itself — so a trustworthy exhaustive list has to be dumped from the running application rather than written by hand. Generating that page automatically is a known task; until it exists, the palette is the authority.
+> This page lists the commands worth knowing by name. It is **not** the complete registry: commands are declared in five different places in the codebase — plug manifests, library Lua, view and navigator definitions, and two files of client TypeScript — so a trustworthy exhaustive list has to be dumped from the running application rather than written by hand. Generating that page automatically is a known task; until it exists, the palette is the authority.
